@@ -82,6 +82,7 @@ public class Game {
                     System.out.println("--------User playing--------\nColumn: "+column+"\tRow: "+row);
                 gameArea[row-1][column-1] = player.getLetter();
                 this.moveCounter --;
+                checkScore(player,row-1,column-1);
                 return true;
             } else {
                 System.out.println("--------Please select correct indexes--------\n\n\n\n");
@@ -98,7 +99,8 @@ public class Game {
      */
     boolean gameStatus(){
         if(Game.moveCounter==0){
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n--------Game Over!--------");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n--------Game Over!--------\n\n"+"Player "+players[0].getLetter()+": "+players[0].getScore()+"    "
+                                                                                   +"Player "+players[1].getLetter()+": "+players[1].getScore()+"\n\n");
             this.drawGameArea();
             return false;
         }else{
@@ -132,4 +134,106 @@ public class Game {
     }
 
 
+    /**
+     * Manages scores
+     * @param player
+     * @param row
+     * @param column
+     */
+    public void checkScore(Player player, int row, int column){
+        if(player.getLetter() == 'S'){      //'S' inserted
+            if(validatedReach(row-1, column-1) && gameArea[row-1][column-1] == 'O'){    // ^<
+                if(validatedReach(row-2, column-2) && gameArea[row-2][column-2] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row, column-1) && gameArea[row][column-1] == 'O'){    // ^
+                if(validatedReach(row, column-2) && gameArea[row][column-2] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row+1, column-1) && gameArea[row+1][column-1] == 'O'){    // ^>
+                if(validatedReach(row+2, column-2) && gameArea[row+2][column-2] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row-1, column) && gameArea[row-1][column] == 'O'){    // <
+                if(validatedReach(row-2, column) && gameArea[row-2][column] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row-1, column+1) && gameArea[row-1][column+1] == 'O'){    // v<
+                if(validatedReach(row-2, column+2) && gameArea[row-2][column+2] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row, column+1) && gameArea[row][column+1] == 'O'){    // v
+                if(validatedReach(row, column+2) && gameArea[row][column+2] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row+1, column+1) && gameArea[row+1][column+1] == 'O'){    // v>
+                if(validatedReach(row+2, column+2) && gameArea[row+2][column+2] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row+1, column) && gameArea[row+1][column] == 'O'){    // >
+                if(validatedReach(row+2, column) && gameArea[row+2][column] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+        } else { // 'O' inserted
+            if(validatedReach(row-1, column-1) && gameArea[row-1][column-1] == 'S'){    // ^<
+                if(validatedReach(row+1, column+1) && gameArea[row+1][column+1] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row, column-1) && gameArea[row][column-1] == 'S'){    // ^
+                if(validatedReach(row, column+1) && gameArea[row][column+1] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row+1, column-1) && gameArea[row+1][column-1] == 'S'){    // ^>
+                if(validatedReach(row-1, column+1) && gameArea[row-1][column+1] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row-1, column) && gameArea[row-1][column] == 'S'){    // <
+                if(validatedReach(row+1, column) && gameArea[row+1][column] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row-1, column+1) && gameArea[row-1][column+1] == 'S'){    // v<
+                if(validatedReach(row+1, column-1) && gameArea[row+1][column-1] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row, column+1) && gameArea[row][column+1] == 'S'){    // v
+                if(validatedReach(row, column-1) && gameArea[row][column-1] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row+1, column+1) && gameArea[row+1][column+1] == 'S'){    // v>
+                if(validatedReach(row-1, column-1) && gameArea[row-1][column-1] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+            if(validatedReach(row+1, column) && gameArea[row+1][column] == 'S'){    // >
+                if(validatedReach(row-1, column) && gameArea[row-1][column] == 'S'){
+                    player.setScore(player.getScore()+1);
+                }
+            }
+        }
+    }
+
+    /**
+     * Banned to reach out of  the array bounds
+     * @param column
+     * @param row
+     * @return
+     */
+    public boolean validatedReach(int column, int row){
+        if(column>=size || row >= size || column <0 || row <0) return false;
+        else return true;
+    }
 }

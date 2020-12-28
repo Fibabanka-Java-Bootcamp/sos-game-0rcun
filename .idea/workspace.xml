@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f625cd3-2d2e-4bbc-81fc-6e9d8ae13ef8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sos-game-0rcun/org/kodluyoruz/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sos-game-0rcun/org/kodluyoruz/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sos-game-0rcun/org/kodluyoruz/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sos-game-0rcun/org/kodluyoruz/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/kodluyoruz/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/kodluyoruz/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/kodluyoruz/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/kodluyoruz/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/kodluyoruz/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/kodluyoruz/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
       <workItem from="1608987815309" duration="6412000" />
       <workItem from="1608996877748" duration="1677000" />
       <workItem from="1609057645518" duration="5000" />
-      <workItem from="1609161855031" duration="743000" />
+      <workItem from="1609161855031" duration="9003000" />
     </task>
     <servers />
   </component>

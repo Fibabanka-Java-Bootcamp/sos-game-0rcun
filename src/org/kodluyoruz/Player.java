@@ -28,6 +28,7 @@ public class Player {
     }
 
     public void setScore(int score) {
+        System.out.println(this.getLetter()+"\t gained a point!");
         this.score = score;
     }
 

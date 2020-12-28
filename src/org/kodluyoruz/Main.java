@@ -32,6 +32,7 @@ public class Main {
 
         Player currentPlayer;
         while (game.gameStatus()){
+            game.drawGameArea();
             int column,row;
             Random random = new Random();
              currentPlayer = game.turn();
@@ -46,9 +47,7 @@ public class Main {
                     row = scanner.nextInt();
                 }
             }while (!game.makeMove(currentPlayer, column,row));
-            game.drawGameArea();
+
         }
     }
-
-
 }
