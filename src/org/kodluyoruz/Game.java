@@ -73,6 +73,13 @@ public class Game {
         }
     }
 
+    /**
+     * Manages game moves.
+     * @param player
+     * @param column
+     * @param row
+     * @return
+     */
     boolean makeMove(Player player, int column, int row){
         if(!(column>size || column<0 || row>size || row<0)){
             if(gameArea[row-1][column-1] == '\u0000'){
@@ -113,26 +120,17 @@ public class Game {
      * @return
      */
     Player turn(){
-        if(getPlayers()[0].getTurn()){
-            getPlayers()[0].setTurn(false);
-            getPlayers()[1].setTurn(true);
-            return getPlayers()[0];
+        if(players[0].getTurn()){
+            players[0].setTurn(false);
+            players[1].setTurn(true);
+            return players[0];
         }
         else {
-            getPlayers()[1].setTurn(false);
-            getPlayers()[0].setTurn(true);
-            return getPlayers()[1];
+            players[1].setTurn(false);
+            players[0].setTurn(true);
+            return players[1];
         }
     }
-
-    public Player[] getPlayers() {
-        return players;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
 
     /**
      * Manages scores
@@ -236,4 +234,9 @@ public class Game {
         if(column>=size || row >= size || column <0 || row <0) return false;
         else return true;
     }
+
+    public int getSize() {
+        return size;
+    }
+
 }
