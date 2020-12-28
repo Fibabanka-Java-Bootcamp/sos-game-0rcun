@@ -10,15 +10,6 @@ public class Game {
 
     /**
      * Initializes conditions that are starting game
-     */
-    public Game(){
-        this.size =3;
-        this.moveCounter = this.size*this.size;
-        createGame();
-    }
-
-    /**
-     * Initializes conditions that are starting game
      * @param size Defines game area
      */
     public Game(int size){
@@ -32,9 +23,9 @@ public class Game {
      * @param size
      * @return
      */
-    static boolean checkSize(int size){
+    static boolean checkSize(int size) throws IllegalArgumentException {
         if(size>=3 && size <=7) return true;
-        else return false;
+        else throw new IllegalArgumentException();
     }
 
     /**
@@ -83,15 +74,22 @@ public class Game {
     }
 
     boolean makeMove(Player player, int column, int row){
-        if(gameArea[row-1][column-1] == '\u0000'){
-            if(player.isComputer())
-                System.out.println("--------Computer playing--------\nColumn: "+column+"\tRow: "+row);
-            else
-                System.out.println("--------User playing--------\nColumn: "+column+"\tRow: "+row);
-            gameArea[row-1][column-1] = player.getLetter();
-            this.moveCounter --;
-            return true;
-        } else return false;
+        if(!(column>size || column<0 || row>size || row<0)){
+            if(gameArea[row-1][column-1] == '\u0000'){
+                if(player.isComputer())
+                    System.out.println("--------Computer playing--------\nColumn: "+column+"\tRow: "+row);
+                else
+                    System.out.println("--------User playing--------\nColumn: "+column+"\tRow: "+row);
+                gameArea[row-1][column-1] = player.getLetter();
+                this.moveCounter --;
+                return true;
+            } else {
+                System.out.println("--------Please select correct indexes--------\n\n\n\n");
+                return false;
+            }
+        }
+        System.out.println("--------Please select correct indexes--------\n\n\n\n");
+        return false;
     }
 
     /**
@@ -100,7 +98,7 @@ public class Game {
      */
     boolean gameStatus(){
         if(Game.moveCounter==0){
-            System.out.println("--------Game Over!--------");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n--------Game Over!--------");
             this.drawGameArea();
             return false;
         }else{
@@ -132,4 +130,6 @@ public class Game {
     public int getSize() {
         return size;
     }
+
+
 }
